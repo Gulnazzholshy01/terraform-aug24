@@ -2,21 +2,24 @@ resource "aws_instance" "web" {
   ami                    = data.aws_ami.ubuntu.id
   vpc_security_group_ids = [aws_security_group.web.id]
   instance_type          = var.instance_type
-  user_data              = file("./extras/userdata.sh")
+  subnet_id              = var.subnet_id
+  user_data              = file("${path.module}/extras/userdata.sh")
 
   lifecycle {
     create_before_destroy = true
   }
 
   tags = (
-    { Name = "my-webserver" }
+    { Name = "${var.env}-webserver" }
   )
 }
 
 
 resource "aws_security_group" "web" {
+  vpc_id      = var.my_vpc_id
   name        = "MySG"
   description = "Session-3 SG"
+
 
   tags = (
     { Name = "my-sg" }

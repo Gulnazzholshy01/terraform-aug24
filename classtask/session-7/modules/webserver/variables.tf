@@ -5,11 +5,21 @@ variable "env" {
 }
 
 variable "instance_type" {
-    default = "t2.micro"
-    description = "This is Instance Type"
-    type = string
+  default     = "t2.micro"
+  description = "This is Instance Type"
+  type        = string
 }
 
+variable "subnet_id" {
+  description = "This is my subnet for webserver "
+  type        = string
+}
+
+variable "my_vpc_id" {
+  description = "This is my VPC for SG"
+  type        = string
+
+}
 variable "ports_sg" {
   type = map(object({
     from_port   = number
