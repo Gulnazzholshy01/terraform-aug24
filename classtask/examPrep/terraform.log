@@ -1,0 +1,9 @@
+2025-01-18T11:28:00.903-0600 [INFO]  Terraform version: 1.7.4
+2025-01-18T11:28:00.904-0600 [INFO]  Go runtime version: go1.21.5
+2025-01-18T11:28:00.904-0600 [INFO]  CLI args: []string{"terraform", "init"}
+2025-01-18T11:28:00.905-0600 [INFO]  Loading CLI configuration from /Users/gulnazzholshy/.terraform.d/credentials.tfrc.json
+2025-01-18T11:28:00.908-0600 [INFO]  CLI command args: []string{"init"}
+2025-01-18T11:28:00.920-0600 [INFO]  backend-s3.aws-base: Retrieved credentials: tf_backend.operation=Configure tf_backend.req_id=63abb9db-b128-5e7f-6fdd-593ddb3c81b6 tf_backend.s3.bucket=terraform-aug24-123456789 tf_backend.s3.path=classtasks/examPrep/test/terraform.tfstate tf_aws.credentials_source="SharedConfigCredentials: /Users/gulnazzholshy/.aws/credentials"
+2025-01-18T11:28:01.169-0600 [INFO]  backend-s3.aws-base: Retrieved caller identity from STS: tf_backend.operation=Configure tf_backend.req_id=63abb9db-b128-5e7f-6fdd-593ddb3c81b6 tf_backend.s3.bucket=terraform-aug24-123456789 tf_backend.s3.path=classtasks/examPrep/test/terraform.tfstate
+2025-01-18T11:28:01.205-0600 [INFO]  backend-s3.aws-base: Retrieved caller identity from STS: tf_backend.operation=Configure tf_backend.req_id=63abb9db-b128-5e7f-6fdd-593ddb3c81b6 tf_backend.s3.bucket=terraform-aug24-123456789 tf_backend.s3.path=classtasks/examPrep/test/terraform.tfstate
+2025-01-18T11:28:02.080-0600 [INFO]  backend-s3: Downloading remote state: tf_backend.operation=Get tf_backend.req_id=90596ae9-9688-1a42-327c-3f674f2b5554 tf_backend.s3.bucket=terraform-aug24-123456789 tf_backend.s3.path=classtasks/examPrep/test/terraform.tfstate

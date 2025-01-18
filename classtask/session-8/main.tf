@@ -4,19 +4,30 @@ resource "aws_instance" "web" {
   instance_type          = var.instance_type
   key_name               = "key_new"
 
-  # provisioner "local-exec" {
-  #   command = "echo ${self.public_ip} >> private_ips.txt"
-  # }
+
+  tags = {
+    Name = "my-server-${var.env}"
+    Env  = var.env
+  }
+}
+
+
+resource "null_resource" "cluster" {
+  triggers = {
+    instance_id = aws_instance.web.id //condition 1
+    timestamp = "${timestamp()}" //condition
+  }
+
 
   connection {
     type        = "ssh"
     user        = "ubuntu"
     private_key = file("~/.ssh/id_rsa")
-    host        = self.public_ip
+    host        = aws_instance.web.public_ip
   }
 
   provisioner "file" {
-    content     = "./index.html"
+    source    = "./index.html"
     destination = "/tmp/index.html"
   }
 
@@ -30,12 +41,10 @@ resource "aws_instance" "web" {
       "sudo cp /tmp/index.html /var/www/html/index.html"
     ]
   }
-
-  tags = {
-    Name = "my-server-${var.env}"
-    Env  = var.env
-  }
 }
+
+
+
 
 resource "aws_security_group" "web" {
   name        = "MySG"
